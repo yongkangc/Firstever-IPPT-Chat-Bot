@@ -9,6 +9,8 @@ import logging
 import re
 from functools import wraps
 import math
+import os
+
 
 from ippt_data import *
 
@@ -350,10 +352,21 @@ def cancel(update, context):
 
 
 def main():
-    # updater is to receive the updates from Telegram and to deliver them to dispatcher.
-    updater = Updater(token='875395001:AAFvbY8ycuLz0YXKyU6LOFv7oey-VkdPKOM', use_context=True)
-    # dispatch updates to event handlers
+    logger.info("Starting bot")
+
+    #setting config for deployment
+    TOKEN = '875395001:AAFvbY8ycuLz0YXKyU6LOFv7oey-VkdPKOM'
+    PORT = int(os.environ.get('PORT', '8443'))
+    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
+
+    updater = Updater(token = TOKEN, use_context=True)
     dp = updater.dispatcher
+
+    #webhook handler
+    updater.start_webhook(listen="0.0.0.0",
+                          port=PORT,
+                          url_path=TOKEN)
+    updater.bot.set_webhook("https://{}.herokuapp.com/{}".format(HEROKU_APP_NAME, TOKEN))
 
     # conversation handler
     conv_handler = ConversationHandler(

@@ -1,13 +1,4 @@
-#Set defaults
-sitUpDefault = 30
-pushUpDefault = 30
-runDefault = 790
-defaultAge = "25"
-defaultVocation = 1
-
-
-
-
+#python3
 
 pushUpScores = {
     "60": ["25", "25", "25", "25", "25", "25", "25", "25", "25", "25", "25", "25", "25", "25"],
