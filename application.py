@@ -20,7 +20,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
-# bot = telegram.Bot(token='875395001:AAFvbY8ycuLz0YXKyU6LOFv7oey-VkdPKOM')
+bot = telegram.Bot(token='875395001:AAFvbY8ycuLz0YXKyU6LOFv7oey-VkdPKOM')
 
 CHOICE, AGE, PUSHUPS, SITUPS, RUNTIME, RECEIVED_INFORMATION, EDIT, END = range(8)
 
