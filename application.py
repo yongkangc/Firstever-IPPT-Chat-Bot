@@ -393,7 +393,7 @@ def main():
 
     # run the bot with webhook handler
     updater.start_webhook(listen="0.0.0.0",
-                          port=PORT,
+                          port=int(PORT),
                           url_path=TOKEN)
     updater.bot.set_webhook("https://{}.herokuapp.com/{}".format(HEROKU_APP_NAME, TOKEN))
 
