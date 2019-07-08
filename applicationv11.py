@@ -22,7 +22,8 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 CHOICE, AGE, PUSHUPS, SITUPS, RUNTIME, RECEIVED_INFORMATION, EDIT, END = range(8)
-TOKEN = os.getenv("TOKEN")
+# TOKEN = os.getenv("TOKEN")
+TOKEN = '875395001:AAFvbY8ycuLz0YXKyU6LOFv7oey-VkdPKOM'
 bot = telegram.Bot(TOKEN)
 
 
@@ -35,15 +36,15 @@ def send_typing_action(func):
     """Sends typing action while processing func command."""
 
     @wraps(func)
-    def command_func(update, context, *args, **kwargs):
+    def command_func(bot,update, context, *args, **kwargs):
         context.bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
-        return func(update, context, *args, **kwargs)
+        return func(bot,update, context, *args, **kwargs)
 
     return command_func
 
 
 
-def start(update, context):
+def start(bot,update):
     """ /start command for the 2 user options """
 
     keyboard = [[InlineKeyboardButton("Calculate IPPT Score", callback_data='Calculate IPPT Score'),
@@ -61,7 +62,7 @@ def start(update, context):
 
 
 @send_typing_action
-def calculate(update, context):
+def calculate(bot,update,context):
     """ /calculate command """
 
     update.message.reply_text('My only purpose is to help you with your IPPT 💪.\n'
@@ -72,7 +73,7 @@ def calculate(update, context):
 
 
 @send_typing_action
-def choice(update, context):
+def choice(bot,update, context):
     """asking age"""
 
     user = update.message.from_user
@@ -394,10 +395,10 @@ def main():
     dp.add_error_handler(error)
 
     # run the bot with webhook handler
-    updater.start_webhook(listen="0.0.0.0",
-                          port=int(PORT),
-                          url_path=TOKEN)
-    updater.bot.set_webhook("https://{}.herokuapp.com/{}".format(HEROKU_APP_NAME, TOKEN))
+    # updater.start_webhook(listen="0.0.0.0",
+    #                       port=int(PORT),
+    #                       url_path=TOKEN)
+    # updater.bot.set_webhook("https://{}.herokuapp.com/{}".format(HEROKU_APP_NAME, TOKEN))
     updater.start_polling()
     # Run the bot until you press Ctrl-C
     updater.idle()
