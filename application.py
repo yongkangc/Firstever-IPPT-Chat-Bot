@@ -51,7 +51,7 @@ def start(update, context):
                 ]
 
     reply_markup = ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
-    bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
+    # bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
 
     update.message.reply_text('Hi! I am the IPPT Bot! My only purpose is to help you with your IPPT 💪.\n'
                               'Send /cancel to stop talking to me.\n\n'
