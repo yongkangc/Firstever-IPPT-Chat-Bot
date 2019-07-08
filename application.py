@@ -20,8 +20,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
-bot = telegram.Bot(token='875395001:AAFvbY8ycuLz0YXKyU6LOFv7oey-VkdPKOM')
-
 CHOICE, AGE, PUSHUPS, SITUPS, RUNTIME, RECEIVED_INFORMATION, EDIT, END = range(8)
 
 
@@ -355,11 +353,13 @@ def main():
     logger.info("Starting bot")
 
     #setting config for deployment
-    TOKEN = '875395001:AAFvbY8ycuLz0YXKyU6LOFv7oey-VkdPKOM'
-    PORT = int(os.environ.get('PORT', '8443'))
+    TOKEN = os.getenv("TOKEN")
+    # Port is given by Heroku
+    PORT = os.environ.get('PORT')
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
 
     updater = Updater(TOKEN)
+    #bot = telegram.Bot(TOkEN)
     dp = updater.dispatcher
 
     # conversation handler
