@@ -33,13 +33,13 @@ def send_typing_action(func):
 
     @wraps(func)
     def command_func(update, context, *args, **kwargs):
-        context.bot.send_chat_action(chat_id=update.effective_message.chat_id, action=ChatAction.TYPING)
+        context.bot.send_chat_action(chat_id=update.message.chat_id, action=ChatAction.TYPING)
         return func(update, context, *args, **kwargs)
 
     return command_func
 
 
-@send_typing_action
+
 def start(update, context):
     """ /start command for the 2 user options """
 
@@ -48,6 +48,7 @@ def start(update, context):
                 ]
 
     reply_markup = ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
+    bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
 
     update.message.reply_text('Hi! I am the IPPT Bot! My only purpose is to help you with your IPPT 💪.\n'
                               'Send /cancel to stop talking to me.\n\n'
