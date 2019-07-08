@@ -360,7 +360,7 @@ def main():
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
 
     updater = Updater(TOKEN)
-    #bot = telegram.Bot(TOkEN)
+    bot = telegram.Bot(TOKEN)
     dp = updater.dispatcher
 
     # conversation handler
