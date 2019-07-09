@@ -308,7 +308,7 @@ def calculate_score_grade(update, context):
     try:
         if total_score < 100:
             update.message.reply_text(
-                ('Your Score : {} {}.\n {} more points to {}. 💪').format(total_score, grade, point_needed,
+                ('Your Score : {} {}.\n{} more points to {} 💪').format(total_score, grade, point_needed,
                                                                           almost_grade))
             update.message.reply_text('If you wanna talk to me again:\n\n'
                                       'Send /calculate - calculate your IPPT Score\n'
