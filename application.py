@@ -127,7 +127,7 @@ def situpcounts(update, context):
     sitUp = update.message.text
     logger.info("Name : %s. sitUp: %s", user.first_name, sitUp)
 
-    if not re.match('^[0-9][-]{1,2}$', sitUp):
+    if not re.match('^[0-9]{1,2}$', sitUp):
         update.message.reply_text('Sorry Please try again. Only input your Situps in number format. e.g 60')
         return SITUPS
 
@@ -146,7 +146,7 @@ def run_time(update, context):
     runTime = update.message.text
 
     logger.info("Name: %s. RunTime: %s", user.first_name, runTime)
-    if not re.match('^[0-9]{4}$', runTime):
+    if not re.match('^[0-9]{2}[-][0-9]{2}$', runTime):
         update.message.reply_text('Sorry, Please enter again in mins secs e.g 11-30 for 11:30: ')
         return RUNTIME
     else:
