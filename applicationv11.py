@@ -27,7 +27,7 @@ TOKEN = '875395001:AAFvbY8ycuLz0YXKyU6LOFv7oey-VkdPKOM'
 bot = telegram.Bot(TOKEN)
 
 
-def error(update, context):
+def error(update, c ontext):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 

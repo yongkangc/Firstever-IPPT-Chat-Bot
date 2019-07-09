@@ -52,7 +52,7 @@ def start(update, context):
     reply_markup = ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
     # bot.send_chat_action(chat_id=update.message.chat_id, action=telegram.ChatAction.TYPING)
 
-    update.message.reply_text('Hi! I am the IPPT Bot! My only purpose is to help you with your IPPT 💪.\n'
+    update.message.reply_text('Hi! I am the IPPT Bot! I am to help you with your IPPT 💪\n'
                               'Send /cancel to stop talking to me.\n\n'
                               'How can i help? 😊', reply_markup=reply_markup)
 
@@ -63,7 +63,7 @@ def start(update, context):
 def calculate(update, context):
     """ /calculate command """
 
-    update.message.reply_text('My only purpose is to help you with your IPPT 💪.\n'
+    update.message.reply_text('My only purpose is to help you with your IPPT 💪\n'
                               'Send /cancel to stop talking to me.\n'
                               'You have chosen to calculate your IPPT Score.\n\n'
                               'Please send me your age!')
@@ -76,7 +76,7 @@ def choice(update, context):
 
     user = update.message.from_user
     logger.info("Choice of %s: %s", user.first_name, update.message.text)
-    update.message.reply_text('How old are you? Don\'t worry, no one else would know.',
+    update.message.reply_text('What is your current age? Don\'t worry, no one else will know.',
                               reply_markup=ReplyKeyboardRemove())
 
     return AGE
@@ -96,7 +96,7 @@ def age(update, context):
     else:
         # adds user age into dict 'context.user_data'
         context.user_data['Age'] = age
-        update.message.reply_text('How many pushup can you do in 60 seconds?')
+        update.message.reply_text('How many Pushups can you do in 1 minute?')
 
     return PUSHUPS
 
@@ -110,11 +110,11 @@ def pushupcount(update, context):
 
     logger.info("Pushup of %s: %s", user.first_name, pushUp)
     if not re.match('^[0-9]{1,2}$', pushUp):
-        update.message.reply_text('Sorry Please try again. Only input your push-ups in number format. e.g 60')
+        update.message.reply_text('Sorry Please try again. Only input your Pushups in number format. e.g 60')
         return PUSHUPS
     else:
         context.user_data['Pushups'] = pushUp
-        update.message.reply_text('How many sit-ups can you do in 60 seconds?')
+        update.message.reply_text('How many Situps can you do in 1 minute?')
 
     return SITUPS
 
@@ -127,13 +127,13 @@ def situpcounts(update, context):
     sitUp = update.message.text
     logger.info("Name : %s. sitUp: %s", user.first_name, sitUp)
 
-    if not re.match('^[0-9]{1,2}$', sitUp):
-        update.message.reply_text('Sorry Please try again. Only input your sit-ups in number format. e.g 60')
+    if not re.match('^[0-9][-]{1,2}$', sitUp):
+        update.message.reply_text('Sorry Please try again. Only input your Situps in number format. e.g 60')
         return SITUPS
 
     else:
         context.user_data['Situps'] = sitUp
-        update.message.reply_text('How long do you take to complete 2.4km run? Please enter in mins secs format (e.g 1130)')
+        update.message.reply_text('How long do you take for a 2.4km run? Please enter in mins-secs format (e.g 11-30)')
 
     return RUNTIME
 
@@ -147,7 +147,7 @@ def run_time(update, context):
 
     logger.info("Name: %s. RunTime: %s", user.first_name, runTime)
     if not re.match('^[0-9]{4}$', runTime):
-        update.message.reply_text('Sorry please enter again in mins secs e.g 1130 for 11:30: ')
+        update.message.reply_text('Sorry, Please enter again in mins secs e.g 11-30 for 11:30: ')
         return RUNTIME
     else:
         context.user_data['Run Time'] = runTime
@@ -158,9 +158,9 @@ def run_time(update, context):
                           ['Situps', 'Run Time'],
                           ['Done']]
         markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
-        update.message.reply_text("Is the Information correct bro?"
+        update.message.reply_text("Is the Information correct?"
                                   "{}"
-                                  "Click Done if it is correct.If Not, Please click on the wrong section to correct me. ".format(
+                                  "Click Done if it is correct. If Not, Please click on the wrong section to correct me. ".format(
             facts_to_str(user_data)), reply_markup=markup)
 
     return EDIT
@@ -179,9 +179,9 @@ def received_information(update, context):
                       ['Done']]
     markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
 
-    update.message.reply_text("Is the Information correct bro?"
+    update.message.reply_text("Is the Information correct?"
                               "{}"
-                              "Click Done if it is correct.If not please correct me".format(
+                              "Click Done if it is correct.\nIf not please correct me".format(
         facts_to_str(user_data)), reply_markup=markup)
 
     return EDIT
@@ -275,11 +275,11 @@ def calculate_score_grade(update, context):
 
     tier_list = [
         (100, "PERFECT FITNESS"),
-        (90, "Commando gold"),
-        (85, "Gold"),
-        (75, "Silver"),
-        (61, "Pass for NSF/Incentive"),
-        (51, "Pass for NSMEN"),
+        (90, "🥇 Commando gold"),
+        (85, "🥇 Gold"),
+        (75, "🥈 Silver"),
+        (61, "🥈 Pass for NSF/Incentive"),
+        (51, "Fail for NSF/Pass for NSMEN"),
         (0, "Fail")
     ]
 
@@ -310,14 +310,14 @@ def calculate_score_grade(update, context):
             update.message.reply_text(
                 ('Your Score : {} {}.\n {} more points to {}. 💪').format(total_score, grade, point_needed,
                                                                           almost_grade))
-            update.message.reply_text('Bro if you wanna talk to me again:\n\n'
+            update.message.reply_text('If you wanna talk to me again:\n\n'
                                       'Send /calculate - calculate your IPPT Score\n'
                                       'Send /workout - generates your workout\n'
                                       'or Send /start to choose!👍')
             return ConversationHandler.END
         else:
             update.message.reply_text('100 Points! Perfect! 💪 ')
-            update.message.reply_text('Bro if you wanna talk to me again:\n\n'
+            update.message.reply_text('If you wanna talk to me again:\n\n'
                                       'Send /calculate - calculate your IPPT Score\n'
                                       'Send /workout - generates your workout\n'
                                       'or Send /start to choose!👍')
@@ -327,7 +327,7 @@ def calculate_score_grade(update, context):
     except TelegramError:
         logger.info('Your Score : %s %s. %s more points to %s . Type anything to try again.', total_score, grade,
                     point_needed, almost_grade)
-        update.message.reply_text('Sorry there was an error. /cancel then /calculate to try again')
+        update.message.reply_text('Sorry there was an error.\n /cancel then /calculate to try again')
 
 
 
@@ -346,7 +346,7 @@ def non_command_reply(update, context):
 def cancel(update, context):
     user = update.message.from_user
     logger.info("User %s canceled the conversation.", user.first_name)
-    update.message.reply_text('Bye {}! Type anything to talk to me again :)'.format(user.first_name),
+    update.message.reply_text('Bye {}! Type anything to chat with me again :)'.format(user.first_name),
                               reply_markup=ReplyKeyboardRemove())
 
     return ConversationHandler.END
