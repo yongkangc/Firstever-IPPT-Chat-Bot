@@ -261,7 +261,7 @@ def calculate_score_grade(update, context):
 
     runTime = userinput['Run Time']
     min = int(runTime[0:2])
-    sec = int(runTime[2:4])
+    sec = int(runTime[3:5])
 
     runTime = min * 60 + sec
     runTime = roundup(runTime)
