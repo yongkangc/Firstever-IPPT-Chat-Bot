@@ -360,9 +360,9 @@ def main():
     PORT = os.environ.get('PORT')
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
 
-    updater = Updater(TOKEN)
+    updater = Updater(TOKEN,use_context=True)
     dp = updater.dispatcher
-    
+
     # conversation handler
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start), CommandHandler('calculate', calculate)],
