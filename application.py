@@ -23,7 +23,6 @@ logger = logging.getLogger(__name__)
 
 CHOICE, AGE, PUSHUPS, SITUPS, RUNTIME, RECEIVED_INFORMATION, EDIT, END = range(8)
 TOKEN = os.getenv("TOKEN")
-bot = telegram.Bot(TOKEN)
 
 
 def error(update, context):
@@ -363,7 +362,7 @@ def main():
 
     updater = Updater(TOKEN)
     dp = updater.dispatcher
-
+    
     # conversation handler
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start), CommandHandler('calculate', calculate)],
