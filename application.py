@@ -133,7 +133,7 @@ def situpcounts(update, context):
 
     else:
         context.user_data['Situps'] = sitUp
-        update.message.reply_text('How long do you take for a 2.4km run? Please enter in mins-secs format (e.g 11-30)')
+        update.message.reply_text('How long do you take for a 2.4km run? Please enter in mins.secs format (e.g 11.30)')
 
     return RUNTIME
 
@@ -146,8 +146,8 @@ def run_time(update, context):
     runTime = update.message.text
 
     logger.info("Name: %s. RunTime: %s", user.first_name, runTime)
-    if not re.match('^[0-9]{2}[-][0-9]{2}$', runTime):
-        update.message.reply_text('Sorry, Please enter again in mins secs e.g 11-30 for 11:30: ')
+    if not re.match('^[0-9]{2}[.][0-9]{2}$', runTime):
+        update.message.reply_text('Sorry, Please enter again in mins.secs e.g 11.30 for 11:30: ')
         return RUNTIME
     else:
         context.user_data['Run Time'] = runTime
@@ -160,7 +160,7 @@ def run_time(update, context):
         markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
         update.message.reply_text("Is the Information correct?"
                                   "{}"
-                                  "Click Done if it is correct. If Not, Please click on the wrong section to correct me. ".format(
+                                  "Click Done if it is correct. If Not, Please click on the wrong section to correct the information. ".format(
             facts_to_str(user_data)), reply_markup=markup)
 
     return EDIT
