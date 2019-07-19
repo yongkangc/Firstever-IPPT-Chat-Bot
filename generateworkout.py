@@ -2,7 +2,6 @@ from telegram import CallbackQuery
 
 from application import *
 
-CHOICE,TARGET,IPPTWORKOUT,PUSHUP_SCORE,SITUP_SCORE,NONTARGET = range(6)
 logger = logging.getLogger(__name__)
 
 def send_typing_action(func):
@@ -81,12 +80,13 @@ def pushup_workout(update,context):
             'Read more at <a href = "https://www.military.com/military-fitness/fitness-test-prep/pullup-push-workout"> 14 day Pushup Plan </a>',
             parse_mode=telegram.ParseMode.HTML)
 
-        end = update.message.reply_text('If you wanna talk to me again:\n\n'
+
+        time.sleep(20)
+
+        update.message.reply_text('If you wanna talk to me again:\n\n'
                                         'Send /calculate - calculate your IPPT Score\n'
                                         'Send /workout - generates your workout\n'
                                         'or Send /start to choose!👍')
-
-        job = context.job_queue.run_once(end, 10, context=update.message.chat_id)
 
         return ConversationHandler.END
 
@@ -105,12 +105,12 @@ def pushup_workout(update,context):
         update.message.reply_text('There are three main types of pushups you can do to break up the monotony: "regular" pushups, "wide" pushups, and triceps pushups.\n\n'
                                   'Read more at <a href = "https://www.military.com/military-fitness/fitness-test-prep/pullup-push-workout"> 14 day Pushup Plan </a>', parse_mode=telegram.ParseMode.HTML)
 
-        end = update.message.reply_text('If you wanna talk to me again:\n\n'
+        time.sleep(20)
+
+        update.message.reply_text('If you wanna talk to me again:\n\n'
                                   'Send /calculate - calculate your IPPT Score\n'
                                   'Send /workout - generates your workout\n'
                                   'or Send /start to choose!👍')
-
-        job = context.job_queue.run_once(end, 10, context=update.message.chat_id)
 
         return ConversationHandler.END
 
@@ -159,10 +159,12 @@ def situp_workout(update,context):
                               'Find out more at <a href="https://www.military.com/military-fitness/workouts/situp-test-help-improve-fast">Situp 14 day Boost Plan</a>'
                             ,parse_mode=telegram.ParseMode.HTML)
 
+    time.sleep(20)
+
     update.message.reply_text('If you wanna talk to me again:\n\n'
-                                    'Send /calculate - calculate your IPPT Score\n'
-                                    'Send /workout - generates your workout\n'
-                                    'or Send /start to choose!👍')
+                              'Send /calculate - calculate your IPPT Score\n'
+                              'Send /workout - generates your workout\n'
+                              'or Send /start to choose!👍')
 
     return ConversationHandler.END
 
@@ -176,23 +178,26 @@ def running_workout(update,context):
                               'Warm up with 800 m easy jog\n\n'
                               'Run 400m x 6 sets\n'
                               '- Run each round at your 2.4 km goal pace(example 1:30 = 9 min, 2.4 km goal pace)\n'
-                              '- Rest ratio is 1 to 1 (e.g if you take 1 min 30 s to run, rest for 1 min 30 s)')
+                              '- Rest ratio is 1 to 1 (e.g if you take 1 min 30 s to run, rest for 1 min 30 s)',parse_mode=telegram.ParseMode.HTML)
 
     update.message.reply_text('<b>Interval Workout #2</b>\n\n'
                               'Warm up with 800 m easy jog\n\n'
                               'Run 800m x 3-4 sets\n'
                               '- Run each round at your 2.4 km goal pace(example 1:30 = 9 min, 2.4 km goal pace)\n'
                               '- Rest 3 min per set\n\n'
-                              '<i>Note</i>: you could mix in 1 minute calistenics (squats, lunges, pushups, sit-ups -- your choice, depending on upper body or lower body days')
+                              '<i>Note</i>: you could mix in 1 minute calistenics (squats, lunges, pushups, sit-ups -- your choice, depending on upper body or lower body days',parse_mode=telegram.ParseMode.HTML)
 
-    end = update.message.reply_text('If you wanna talk to me again:\n\n'
-                                    'Send /calculate - calculate your IPPT Score\n'
-                                    'Send /workout - generates your workout\n'
-                                    'or Send /start to choose!👍')
+    time.sleep(20)
 
-    job = context.job_queue.run_once(cancel, 10, context=update.message.chat_id)
+    update.message.reply_text('If you wanna talk to me again:\n\n'
+                              'Send /calculate - calculate your IPPT Score\n'
+                              'Send /workout - generates your workout\n'
+                              'or Send /start to choose!👍')
 
     return ConversationHandler.END
+
+    # job = context.job_queue.run_once(cancel, 10, context=update.message.chat_id)
+
 
 
 @send_typing_action
@@ -207,7 +212,7 @@ def overall_workout(update,context):
                               'Pushups : \n\n'
                               'Flutter Kicks : 20 counts of 4\n\n'
                               'Diamond Pushups : 5 - 15 reps\n\n'
-                              '<i>Rest the remaining of your 10 min before going for the next set</i>'
+                              '<i>Rest the remaining of your 10 min before going for the next set</i>',parse_mode=telegram.ParseMode.HTML
                               )
 
 
@@ -242,7 +247,7 @@ def weight_circuit(update,context):
                               '- Dumbell Shoulder Press x 10\n'
                               '- Plank for 1 min\n'
                               '- Tabata intervals - 20 sec sprint / 10 sec easy. To work heart rate and challenge the fast paced energy system.\n'
-                              '- Rest 5 min')
+                              '- Rest 5 min',parse_mode=telegram.ParseMode.HTML)
 
     context.job_queue.run_once(cancel, 10, context=update.message.chat_id)
 
@@ -255,7 +260,7 @@ def swimming(update,context):
                               '- 50m Swim freestyle FAST (6-8 strokes per breath)\n'
                               '- 50m NO REST go into Swim CSS -- at your goal pace*\n'
                               '- Rest 10 seconds before starting again\n'
-                              '- Do this swim workout 5-6 days a week. Minimum standard daily is 1,000-1,500m if you want to get in shape to swim 500m fast.\n')
+                              '- Do this swim workout 5-6 days a week. Minimum standard daily is 1,000-1,500m if you want to get in shape to swim 500m fast.\n',parse_mode=telegram.ParseMode.HTML)
 
     context.job_queue.run_once(cancel, 40, context=update.message.chat_id)
 
@@ -264,13 +269,13 @@ def swimming(update,context):
 
 def cali_circuit(update,context):
     update.message.reply_text('<b>Calistenics Circuit Training Programme</b>:\n\n'
-                              '<b>3-4 Sets</b>\n'
+                              '<b>3-4 Sets</b>\n\n'
                               '- Run 400 m\n'
                               '- Dips / Push up 5-10 / 20-30 \n'
                               '- Pull up / assisted pullups max rep\n'
                               '- Lunges 20 per leg\n'
                               '- 8 Count Body Builder / Burpees 10-20\n'
-                              '- Rest 3 min\n')
+                              '- Rest 3 min\n',parse_mode=telegram.ParseMode.HTML)
 
     context.job_queue.run_once(cancel, 40, context=update.message.chat_id)
 
@@ -286,7 +291,7 @@ def core(update,context):
                               '- <a href="https://squatwolf.com/blog/how-to-do-flutter-kicks-correctly/">Flutter Kick</a>\n'
                               '- <a href="https://www.bodybuilding.com/exercises/russian-twist">Russian Twist</a>\n'
                               '- <a href= "https://www.verywellfit.com/mountain-climbers-exercise-3966947">Mountain Climber</a>\n\n'
-                              '<i>Therefore you would be doing butterfly crunches, followed by planks,followed by spider planks and then planks again and so on.</i>')
+                              '<i>Therefore you would be doing butterfly crunches, followed by planks,followed by spider planks and then planks again and so on.</i>',parse_mode=telegram.ParseMode.HTML)
 
 
 
@@ -300,7 +305,7 @@ def random_workout(update,context):
                               '- Pull up / assisted pullups max rep\n'
                               '- Lunges 20 per leg\n'
                               '- 8 Count Body Builder / Burpees 10-20\n'
-                              '- Rest 3 min\n')
+                              '- Rest 3 min\n',parse_mode=telegram.ParseMode.HTML)
 
     context.job_queue.run_once(cancel, 40, context=update.message.chat_id)
 

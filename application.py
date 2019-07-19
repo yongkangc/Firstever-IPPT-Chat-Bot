@@ -7,8 +7,10 @@ from telegram.error import (TelegramError, Unauthorized, BadRequest,
                             TimedOut, ChatMigrated, NetworkError)
 
 
+
+
 import logging
-import re
+import re, time
 from functools import wraps
 import math
 import os
@@ -24,13 +26,17 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
-# TOKEN = '898265418:AAFhUSkBIocJ5XDtvpmwy7_TJSbOZWFatCo' - for test
+TOKEN = '898265418:AAFhUSkBIocJ5XDtvpmwy7_TJSbOZWFatCo'
 
 #setting config for deployment
 # Port is given by Heroku
-PORT = os.environ.get('PORT')
-HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
-TOKEN = os.getenv("TOKEN")
+# PORT = os.environ.get('PORT')
+# HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
+# TOKEN = os.getenv("TOKEN")
+
+
+#range for conversation handler
+CHOICE, AGE, PUSHUPS, SITUPS, RUNTIME, RECEIVED_INFORMATION, EDIT, END,TARGET,NONTARGET,IPPTWORKOUT,PUSHUP_SCORE,SITUP_SCORE = range(13)
 
 
 def error(update, context):
@@ -107,9 +113,9 @@ def main():
 
     # conversation handler
     conv_handler_calculate = ConversationHandler(
-        entry_points=[CommandHandler('start', start), CommandHandler('calculate', calculate)],
+        entry_points=[CommandHandler('start', start), CommandHandler('calculate', calculate),CommandHandler('workout', workout),CommandHandler('pushup',pushup_score_workout)],
         states={
-            CHOICE: [MessageHandler(Filters.regex('^Calculate IPPT Score$'), choice),
+            CHOICE: [MessageHandler(Filters.regex('^Calculate IPPT Score$'), choice, pass_user_data=True),
                      MessageHandler(Filters.regex('^Generate Workout$'), workout)],
             AGE: [MessageHandler(Filters.text, age, pass_user_data=True)],
             PUSHUPS: [MessageHandler(Filters.text, pushupcount, pass_user_data=True)],
@@ -119,22 +125,7 @@ def main():
                                   regular_choice,
                                   pass_user_data=True),
                    MessageHandler(Filters.regex('^(Done)$'), calculate_score_grade, pass_user_data=True)],
-            RECEIVED_INFORMATION: [MessageHandler(Filters.text, received_information, pass_user_data=True)]
-            # LOCATION: [MessageHandler(Filters.location, location),
-            #            CommandHandler('skip', skip_location)],
-            #
-            # BIO: [MessageHandler(Filters.text, bio)]
-        },
-
-        fallbacks=[CommandHandler('cancel', cancel)]
-    )
-
-    #Conv handler for generate workout feature
-    conv_handler_workout = ConversationHandler(
-        entry_points=[CommandHandler('start', start), CommandHandler('workout', workout),CommandHandler('pushup',pushup_score_workout)],
-        states={
-            CHOICE: [MessageHandler(Filters.regex('^Calculate IPPT Score$'), choice),
-                     MessageHandler(Filters.regex('^Generate Workout$'), workout)],
+            RECEIVED_INFORMATION: [MessageHandler(Filters.text, received_information, pass_user_data=True)],
             TARGET: [MessageHandler(Filters.regex('^IPPT Workout$'),target),
                      MessageHandler(Filters.regex('^General Workout$'),nontarget)],
 
@@ -151,14 +142,16 @@ def main():
                      MessageHandler(Filters.regex('^Calistenics Circuit Training$'), cali_circuit),
                        MessageHandler(Filters.regex('^Core$'), core),
                        MessageHandler(Filters.regex('^Swimming$'), swimming),
-                       MessageHandler(Filters.regex('^Random$'),random_workout)
-
-                       ]
+                       MessageHandler(Filters.regex('^Random$'),random_workout)]
+            # LOCATION: [MessageHandler(Filters.location, location),
+            #            CommandHandler('skip', skip_location)],
+            #
+            # BIO: [MessageHandler(Filters.text, bio)]
         },
-        fallbacks= [CommandHandler('cancel',cancel)]
+
+        fallbacks=[CommandHandler('cancel', cancel)]
     )
 
-    dp.add_handler(conv_handler_workout)
     dp.add_handler(conv_handler_calculate)
     dp.add_handler(MessageHandler(Filters.text, non_command_reply))
 
@@ -167,13 +160,13 @@ def main():
     dp.add_error_handler(error)
 
     # run the bot with webhook handler
-    updater.start_webhook(listen="0.0.0.0",
-                          port=int(PORT),
-                          url_path=TOKEN)
-    updater.bot.set_webhook("https://{}.herokuapp.com/{}".format(HEROKU_APP_NAME, TOKEN))
+    # updater.start_webhook(listen="0.0.0.0",
+    #                       port=int(PORT),
+    #                       url_path=TOKEN)
+    # updater.bot.set_webhook("https://{}.herokuapp.com/{}".format(HEROKU_APP_NAME, TOKEN))
 
 
-    # updater.start_polling()
+    updater.start_polling()
     # Run the bot until you press Ctrl-C
     updater.idle()
 

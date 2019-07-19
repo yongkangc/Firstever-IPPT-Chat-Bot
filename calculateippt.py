@@ -4,8 +4,6 @@ from application import *
 
 """ Functions that perform the /calculate command of the app """
 
-#range for conversation handler
-CHOICE, AGE, PUSHUPS, SITUPS, RUNTIME, RECEIVED_INFORMATION, EDIT, END = range(8)
 
 def find_ageGroup(age):
     """function to find age grp for ippt"""
@@ -167,6 +165,7 @@ def age(update, context):
     if not re.match('^[0-9]{1,2}$', age):
         update.message.reply_text('Sorry Please try again. Only input your age in number format. e.g 21')
         return AGE
+
     else:
         # adds user age into dict 'context.user_data'
         context.user_data['Age'] = age
