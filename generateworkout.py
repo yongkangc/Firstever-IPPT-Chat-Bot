@@ -317,6 +317,7 @@ def core(update,context):
                               '- <a href="https://squatwolf.com/blog/how-to-do-flutter-kicks-correctly/">Flutter Kick</a>\n'
                               '- <a href="https://www.bodybuilding.com/exercises/russian-twist">Russian Twist</a>\n'
                               '- <a href= "https://www.verywellfit.com/mountain-climbers-exercise-3966947">Mountain Climber</a>\n\n'
+                              '- Rest for 2 mins\n\n'
                               '<i>Therefore you would be doing butterfly crunches, followed by planks,followed by spider planks and then planks again and so on.</i>',parse_mode=telegram.ParseMode.HTML)
 
     time.sleep(10)
