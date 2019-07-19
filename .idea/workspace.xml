@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="008547d8-87a3-4848-b3ba-53c58237be3d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calculateippt.py" beforeDir="false" afterPath="$PROJECT_DIR$/calculateippt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generateworkout.py" beforeDir="false" afterPath="$PROJECT_DIR$/generateworkout.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="126" column="29" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
+            <state relative-caret-position="458">
+              <caret line="160" column="38" lean-forward="true" selection-start-line="160" selection-end-line="161" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -29,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generateworkout.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3757">
-              <caret line="230" lean-forward="true" selection-start-line="230" selection-end-line="230" />
+            <state relative-caret-position="34">
+              <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-end-line="30" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -38,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calculateippt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3026">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="357">
+              <caret line="205" lean-forward="true" selection-start-line="205" selection-end-line="205" />
             </state>
           </provider>
         </entry>
@@ -51,7 +50,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>information corre</find>
       <find>[-]</find>
       <find>[]</find>
       <find>run</find>
@@ -81,6 +79,7 @@
       <find>for t</find>
       <find>target</find>
       <find>nontarge</find>
+      <find>core</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -94,8 +93,8 @@
         <option value="$PROJECT_DIR$/applicationv12.py" />
         <option value="$PROJECT_DIR$/applicationv11.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/generateworkout.py" />
         <option value="$PROJECT_DIR$/calculateippt.py" />
+        <option value="$PROJECT_DIR$/generateworkout.py" />
         <option value="$PROJECT_DIR$/application.py" />
       </list>
     </option>
@@ -362,30 +361,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application.py">
+    <entry file="file://$PROJECT_DIR$/calculateippt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="126" column="29" selection-start-line="126" selection-start-column="29" selection-end-line="126" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="357">
+          <caret line="205" lean-forward="true" selection-start-line="205" selection-end-line="205" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/generateworkout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3757">
-          <caret line="230" lean-forward="true" selection-start-line="230" selection-end-line="230" />
+        <state relative-caret-position="34">
+          <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-end-line="30" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calculateippt.py">
+    <entry file="file://$PROJECT_DIR$/application.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3026">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="458">
+          <caret line="160" column="38" lean-forward="true" selection-start-line="160" selection-end-line="161" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

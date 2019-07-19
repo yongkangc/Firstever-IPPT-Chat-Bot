@@ -2,7 +2,16 @@ from telegram import CallbackQuery
 
 from application import *
 
+# Enable logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+
 logger = logging.getLogger(__name__)
+
+
+#range for conversation handler
+CHOICE, AGE, PUSHUPS, SITUPS, RUNTIME, RECEIVED_INFORMATION, EDIT, END,TARGET,NONTARGET,IPPTWORKOUT,PUSHUP_SCORE,SITUP_SCORE = range(13)
+
 
 def send_typing_action(func):
     """Sends typing action while processing func command."""
