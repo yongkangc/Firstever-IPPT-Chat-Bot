@@ -24,8 +24,8 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
-TOKEN = '898265418:AAFhUSkBIocJ5XDtvpmwy7_TJSbOZWFatCo'
-#TOKEN = os.getenv("TOKEN")
+# TOKEN = '898265418:AAFhUSkBIocJ5XDtvpmwy7_TJSbOZWFatCo' - for test
+TOKEN = os.getenv("TOKEN")
 
 
 def error(update, context):
@@ -161,14 +161,14 @@ def main():
     # log all errors
     dp.add_error_handler(error)
 
-    # # run the bot with webhook handler
-    # updater.start_webhook(listen="0.0.0.0",
-    #                       port=int(PORT),
-    #                       url_path=TOKEN)
-    # updater.bot.set_webhook("https://{}.herokuapp.com/{}".format(HEROKU_APP_NAME, TOKEN))
+    # run the bot with webhook handler
+    updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=TOKEN)
+    updater.bot.set_webhook("https://{}.herokuapp.com/{}".format(HEROKU_APP_NAME, TOKEN))
 
 
-    updater.start_polling()
+    # updater.start_polling()
     # Run the bot until you press Ctrl-C
     updater.idle()
 
