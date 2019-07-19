@@ -32,7 +32,8 @@ def workout(update,context):
                  InlineKeyboardButton("General Workout", callback_data='non-targeted')],
                 ]
     reply_markup = ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
-    update.message.reply_text('Do you want a IPPT targeted workout or a general workout?',reply_markup=reply_markup)
+    update.message.reply_text('Do you want a IPPT targeted workout or a general workout?\n'
+                              'Send /cancel to stop talking to me.',reply_markup=reply_markup)
     choice = update.message.text
 
     logger.info("choice of %s,%s", user.first_name,choice)
@@ -89,13 +90,12 @@ def pushup_workout(update,context):
             'Read more at <a href = "https://www.military.com/military-fitness/fitness-test-prep/pullup-push-workout"> 14 day Pushup Plan </a>',
             parse_mode=telegram.ParseMode.HTML)
 
-
-        time.sleep(20)
+        time.sleep(10)
 
         update.message.reply_text('If you wanna talk to me again:\n\n'
-                                        'Send /calculate - calculate your IPPT Score\n'
-                                        'Send /workout - generates your workout\n'
-                                        'or Send /start to choose!👍')
+                                  'Send /calculate - calculate your IPPT Score\n'
+                                  'Send /workout - generates your workout\n'
+                                  'or Send /start to choose!👍')
 
         return ConversationHandler.END
 
@@ -114,7 +114,7 @@ def pushup_workout(update,context):
         update.message.reply_text('There are three main types of pushups you can do to break up the monotony: "regular" pushups, "wide" pushups, and triceps pushups.\n\n'
                                   'Read more at <a href = "https://www.military.com/military-fitness/fitness-test-prep/pullup-push-workout"> 14 day Pushup Plan </a>', parse_mode=telegram.ParseMode.HTML)
 
-        time.sleep(20)
+        time.sleep(10)
 
         update.message.reply_text('If you wanna talk to me again:\n\n'
                                   'Send /calculate - calculate your IPPT Score\n'
@@ -168,7 +168,7 @@ def situp_workout(update,context):
                               'Find out more at <a href="https://www.military.com/military-fitness/workouts/situp-test-help-improve-fast">Situp 14 day Boost Plan</a>'
                             ,parse_mode=telegram.ParseMode.HTML)
 
-    time.sleep(20)
+    time.sleep(10)
 
     update.message.reply_text('If you wanna talk to me again:\n\n'
                               'Send /calculate - calculate your IPPT Score\n'
@@ -184,19 +184,19 @@ def running_workout(update,context):
     """Programme for ippt 2.4 run"""
 
     update.message.reply_text('<b>Interval Workout #1</b>\n\n'
-                              'Warm up with 800 m easy jog\n\n'
+                              'Warmup : 800 m easy jog\n\n'
                               'Run 400m x 6 sets\n'
-                              '- Run each round at your 2.4 km goal pace(example 1:30 = 9 min, 2.4 km goal pace)\n'
+                              '- Run each round at your 2.4 km goal pace (example 1:30 = 9 min, 2.4 km goal pace)\n'
                               '- Rest ratio is 1 to 1 (e.g if you take 1 min 30 s to run, rest for 1 min 30 s)',parse_mode=telegram.ParseMode.HTML)
 
     update.message.reply_text('<b>Interval Workout #2</b>\n\n'
-                              'Warm up with 800 m easy jog\n\n'
+                              'Warmup : 800 m easy jog\n\n'
                               'Run 800m x 3-4 sets\n'
-                              '- Run each round at your 2.4 km goal pace(example 1:30 = 9 min, 2.4 km goal pace)\n'
+                              '- Run each round at your 2.4 km goal pace (example 1:30 = 9 min, 2.4 km goal pace)\n'
                               '- Rest 3 min per set\n\n'
-                              '<i>Note</i>: you could mix in 1 minute calistenics (squats, lunges, pushups, sit-ups -- your choice, depending on upper body or lower body days',parse_mode=telegram.ParseMode.HTML)
+                              '<i>Note</i> : you could mix in 1 minute calistenics (squats, pushups, sit-ups, depending on upper body or lower body days',parse_mode=telegram.ParseMode.HTML)
 
-    time.sleep(20)
+    time.sleep(10)
 
     update.message.reply_text('If you wanna talk to me again:\n\n'
                               'Send /calculate - calculate your IPPT Score\n'
@@ -224,16 +224,20 @@ def overall_workout(update,context):
                               '<i>Rest the remaining of your 10 min before going for the next set</i>',parse_mode=telegram.ParseMode.HTML
                               )
 
+    time.sleep(10)
 
-    context.job_queue.run_once(cancel, 10, context=update.message.chat_id)
+    update.message.reply_text('If you wanna talk to me again:\n\n'
+                              'Send /calculate - calculate your IPPT Score\n'
+                              'Send /workout - generates your workout\n'
+                              'or Send /start to choose!👍')
 
     return ConversationHandler.END
 
 
 @send_typing_action
 def nontarget(update,context):
-    keyboard = [[InlineKeyboardButton("Weight Circuit Training", callback_data='Weight Circuit Training'),
-                 InlineKeyboardButton("Calistenics Circuit Training", callback_data='Calistenics Circuit Training '),
+    keyboard = [[InlineKeyboardButton("Weight Circuit", callback_data='Weight Circuit Training'),
+                 InlineKeyboardButton("Calistenics Circuit", callback_data='Calistenics Circuit Training '),
                  InlineKeyboardButton("Core", callback_data='core'),
                  InlineKeyboardButton("Swimming", callback_data='all in one'),
                  InlineKeyboardButton("Random", callback_data='random')
@@ -258,7 +262,12 @@ def weight_circuit(update,context):
                               '- Tabata intervals - 20 sec sprint / 10 sec easy. To work heart rate and challenge the fast paced energy system.\n'
                               '- Rest 5 min',parse_mode=telegram.ParseMode.HTML)
 
-    context.job_queue.run_once(cancel, 10, context=update.message.chat_id)
+    time.sleep(10)
+
+    update.message.reply_text('If you wanna talk to me again:\n\n'
+                              'Send /calculate - calculate your IPPT Score\n'
+                              'Send /workout - generates your workout\n'
+                              'or Send /start to choose!👍')
 
     return ConversationHandler.END
 
@@ -286,15 +295,23 @@ def cali_circuit(update,context):
                               '- 8 Count Body Builder / Burpees 10-20\n'
                               '- Rest 3 min\n',parse_mode=telegram.ParseMode.HTML)
 
-    context.job_queue.run_once(cancel, 40, context=update.message.chat_id)
+    time.sleep(10)
+
+    update.message.reply_text('If you wanna talk to me again:\n\n'
+                              'Send /calculate - calculate your IPPT Score\n'
+                              'Send /workout - generates your workout\n'
+                              'or Send /start to choose!👍')
 
     return ConversationHandler.END
 
+
+@send_typing_action
 def core(update,context):
-    update.message.reply_text('## <b>Core</b>The idea of this workout is to train the core as a whole using various exercises at a high intensity.'
-                              '## <b>3 Sets</b>\n'
-                              '### Insert planks in between each core exercise\n'
-                              '### Change exercise every 30 secs.\n'
+    update.message.reply_text('<b>Core</b>\n\n'
+                              'The idea of this workout is to train the core as a whole using various exercises at a high intensity.\n\n'
+                              '<b>3 Sets</b>\n'
+                              'Insert planks in between each core exercise\n'
+                              'Change exercise every 30 secs.\n'
                               '- <a href="https://www.popsugar.com/fitness/How-Do-Butterfly-Crunch-40322354">Butterfly Crunches</a>\n'
                               '- <a href="https://www.wikihow.fitness/Do-Spiderman-Planks">Spider Plank</a>\n'
                               '- <a href="https://squatwolf.com/blog/how-to-do-flutter-kicks-correctly/">Flutter Kick</a>\n'
@@ -302,6 +319,14 @@ def core(update,context):
                               '- <a href= "https://www.verywellfit.com/mountain-climbers-exercise-3966947">Mountain Climber</a>\n\n'
                               '<i>Therefore you would be doing butterfly crunches, followed by planks,followed by spider planks and then planks again and so on.</i>',parse_mode=telegram.ParseMode.HTML)
 
+    time.sleep(10)
+
+    update.message.reply_text('If you wanna talk to me again:\n\n'
+                              'Send /calculate - calculate your IPPT Score\n'
+                              'Send /workout - generates your workout\n'
+                              'or Send /start to choose!👍')
+
+    return ConversationHandler.END
 
 
 def random_workout(update,context):
@@ -316,6 +341,11 @@ def random_workout(update,context):
                               '- 8 Count Body Builder / Burpees 10-20\n'
                               '- Rest 3 min\n',parse_mode=telegram.ParseMode.HTML)
 
-    context.job_queue.run_once(cancel, 40, context=update.message.chat_id)
+    time.sleep(10)
+
+    update.message.reply_text('If you wanna talk to me again:\n\n'
+                              'Send /calculate - calculate your IPPT Score\n'
+                              'Send /workout - generates your workout\n'
+                              'or Send /start to choose!👍')
 
     return ConversationHandler.END

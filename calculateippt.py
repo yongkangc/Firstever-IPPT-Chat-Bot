@@ -107,13 +107,19 @@ def calculate_score_grade(update, context):
             update.message.reply_text(
                 ('Your Score : {} {}.\n{} more points to {} 💪').format(total_score, grade, point_needed,
                                                                           almost_grade))
+
+            time.sleep(3)
+
             update.message.reply_text('If you wanna talk to me again:\n\n'
                                       'Send /calculate - calculate your IPPT Score\n'
                                       'Send /workout - generates your workout\n'
                                       'or Send /start to choose!👍')
+
             return ConversationHandler.END
+
         else:
             update.message.reply_text('100 Points! Perfect! 💪 ')
+            time.sleep(15)
             update.message.reply_text('If you wanna talk to me again:\n\n'
                                       'Send /calculate - calculate your IPPT Score\n'
                                       'Send /workout - generates your workout\n'
@@ -255,7 +261,7 @@ def received_information(update, context):
     update.message.reply_text("Is the Information correct?"
                               "{}"
                               "Click Done if it is correct.\nIf not please correct me".format(
-        facts_to_str(user_data)), reply_markup=markup)
+                            facts_to_str(user_data)), reply_markup=markup)
 
     return EDIT
 

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="008547d8-87a3-4848-b3ba-53c58237be3d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calculateippt.py" beforeDir="false" afterPath="$PROJECT_DIR$/calculateippt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generateworkout.py" beforeDir="false" afterPath="$PROJECT_DIR$/generateworkout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workouts/Calistenics Circuit training.txt" beforeDir="false" afterPath="$PROJECT_DIR$/workouts/Calistenics Circuit training.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workouts/Weight circuit training.txt" beforeDir="false" afterPath="$PROJECT_DIR$/workouts/Weight circuit training.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="160" column="38" lean-forward="true" selection-start-line="160" selection-end-line="161" />
+            <state relative-caret-position="101">
+              <caret line="161" selection-start-line="161" selection-end-line="164" selection-end-column="89" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -28,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generateworkout.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-end-line="30" />
+            <state relative-caret-position="170">
+              <caret line="193" column="53" lean-forward="true" selection-start-line="193" selection-start-column="53" selection-end-line="193" selection-end-column="53" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -40,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calculateippt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="205" lean-forward="true" selection-start-line="205" selection-end-line="205" />
+            <state relative-caret-position="148">
+              <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -50,13 +54,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>[-]</find>
-      <find>[]</find>
-      <find>run</find>
-      <find>pass</find>
-      <find>(8)</find>
-      <find>send</find>
-      <find>calc</find>
       <find>calcu</find>
       <find>calculate</find>
       <find>logger</find>
@@ -73,13 +70,20 @@
       <find>push</find>
       <find>less</find>
       <find>3-4</find>
-      <find>time.</find>
       <find>CHOICE</find>
       <find>choice</find>
       <find>for t</find>
       <find>target</find>
       <find>nontarge</find>
+      <find>weight c</find>
       <find>core</find>
+      <find>time.</find>
+      <find>if you wann</find>
+      <find>facts_to</find>
+      <find>facts</find>
+      <find>do y</find>
+      <find>15</find>
+      <find>note</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -363,15 +367,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/calculateippt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="205" lean-forward="true" selection-start-line="205" selection-end-line="205" />
+        <state relative-caret-position="148">
+          <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/generateworkout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-end-line="30" />
+        <state relative-caret-position="170">
+          <caret line="193" column="53" lean-forward="true" selection-start-line="193" selection-start-column="53" selection-end-line="193" selection-end-column="53" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
@@ -380,8 +384,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="160" column="38" lean-forward="true" selection-start-line="160" selection-end-line="161" />
+        <state relative-caret-position="101">
+          <caret line="161" selection-start-line="161" selection-end-line="164" selection-end-column="89" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

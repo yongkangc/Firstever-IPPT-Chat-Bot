@@ -137,8 +137,8 @@ def main():
 
             PUSHUP_SCORE: [MessageHandler(Filters.regex('^(Less than 40|More than 40)$'),pushup_workout)],
 
-            NONTARGET:[MessageHandler(Filters.regex('^Weight Circuit Training$'), weight_circuit),
-                     MessageHandler(Filters.regex('^Calistenics Circuit Training$'), cali_circuit),
+            NONTARGET:[MessageHandler(Filters.regex('^Weight Circuit$'), weight_circuit),
+                     MessageHandler(Filters.regex('^Calistenics Circuit$'), cali_circuit),
                        MessageHandler(Filters.regex('^Core$'), core),
                        MessageHandler(Filters.regex('^Swimming$'), swimming),
                        MessageHandler(Filters.regex('^Random$'),random_workout)]
