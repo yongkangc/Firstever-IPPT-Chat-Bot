@@ -25,6 +25,11 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 # TOKEN = '898265418:AAFhUSkBIocJ5XDtvpmwy7_TJSbOZWFatCo' - for test
+
+#setting config for deployment
+# Port is given by Heroku
+PORT = os.environ.get('PORT')
+HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME")
 TOKEN = os.getenv("TOKEN")
 
 
