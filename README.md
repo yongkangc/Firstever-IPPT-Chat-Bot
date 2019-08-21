@@ -9,3 +9,6 @@ My main aim is to increase the convinience of calculating IPPT Score and having 
 - Therefore there is a clear need for a personal assistant that will help us reach our fitness goals. 
 
 - Introducing the @IPPTBot. The first Fitness bot that will help you generate workouts according to your fitness standard. As a bonus it will help you calculate your fitness standard too.
+
+
+### Try it here at t.me/IPPTBot
