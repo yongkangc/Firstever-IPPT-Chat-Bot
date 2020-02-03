@@ -12,3 +12,9 @@ My main aim is to increase the convinience of calculating IPPT Score and having 
 
 
 ### Try it here at www.t.me/IPPTBot
+
+
+
+### Technology used:
+- Python
+- Telegram API
